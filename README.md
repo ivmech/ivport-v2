@@ -54,7 +54,16 @@ TYPE and JUMPER settings are configured while init ivport.
 ```python
 ivport.IVPort(IVPORT_TYPE, IVPORT_JUMPER)
 ```
-RESOLUTION, FRAMERATE and other 
+RESOLUTION, FRAMERATE and other settings can be configured.
+```python
+iv = ivport.IVPort(ivport.TYPE_DUAL2)
+iv.camera_open(camera_v2=True)
+iv.picam.resolution = (640, 480)
+iv.picam.framerate = 30
+```
+
+Tests
+------
 
 There is test_ivport.py script.
 ```shell
