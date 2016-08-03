@@ -511,9 +511,25 @@ class PiCamera(object):
             #
             # IVPORT V2 CODE
             #
-#            if camera_v2:
-#                iviic.write_control_register((0x02))
-#                self._init_defaults()
+            if camera_v2:
+                iviic.write_control_register((0x02))
+
+                w, h = resolution
+                fn, fd = to_rational(framerate)
+                cc = self._camera_config
+                cc.max_stills_w = w
+                cc.max_stills_h = h
+                cc.stills_yuv422 = 0
+                cc.one_shot_stills = 1
+                cc.max_preview_video_w = w
+                cc.max_preview_video_h = h
+                cc.num_preview_video_frames = 3
+                cc.stills_capture_circular_buffer_height = 0
+                cc.fast_preview_resume = 0
+                cc.use_stc_timestamp = mmal.MMAL_PARAM_TIMESTAMP_MODE_RESET_STC
+                
+
+                self._init_defaults()
             #
             #
             #
