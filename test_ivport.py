@@ -5,7 +5,7 @@ import ivport
 import time
 
 def picam_sequence():
-    FRAMES = 90
+    FRAMES = 30
     CAM = 0
     def sequence_outputs(iv):
         frame = 0
@@ -19,8 +19,8 @@ def picam_sequence():
 
     iv = ivport.IVPort(ivport.TYPE_DUAL2)
     iv.camera_open(camera_v2=True)
-    iv.picam.resolution = (640, 480)
-    iv.picam.framerate = 30
+    #iv.picam.resolution = (640, 480)
+    #iv.picam.framerate = 30
     #time.sleep(1)
     iv.camera_sequence(outputs=sequence_outputs(iv), use_video_port=True)
     iv.close()
@@ -51,9 +51,9 @@ def still_capture():
 # main capture examples
 # all of them are functional
 def main():
-    still_capture()
-    picam_capture()
-    #picam_sequence()
+    #still_capture()
+    #picam_capture()
+    picam_sequence()
 
 if __name__ == "__main__":
     main()
