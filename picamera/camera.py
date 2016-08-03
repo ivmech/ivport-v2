@@ -511,11 +511,9 @@ class PiCamera(object):
             #
             # IVPORT V2 CODE
             #
-            if camera_v2:
-                iviic.write_control_register((0x02))
-                self._init_defaults()
-                #self._disable_camera()
-                #self._enable_camera()
+#            if camera_v2:
+#                iviic.write_control_register((0x02))
+#                self._init_defaults()
             #
             #
             #
