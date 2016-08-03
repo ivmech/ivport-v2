@@ -17,19 +17,19 @@ IVPORT V2 is available at [HERE](http://www.ivmech.com/magaza/ivport-v2-p-107).
 ### Installation
 
 ```shell
-	git clone https://github.com/ivmech/ivport-v2.git
+git clone https://github.com/ivmech/ivport-v2.git
 ```
 
 ### Dependency Installation
 
 ```shell
-	sudo apt-get install python-smbus
+sudo apt-get install python-smbus
 ```
 picamera module was forked from https://github.com/waveform80/picamera and small edits for camera v2 and ivport support. It may be needed to uninstall preinstalled picamera module on device.
 
 ```shell
-	sudo apt-get remove python-picamera
-	sudo pip uninstall picamera
+sudo apt-get remove python-picamera
+sudo pip uninstall picamera
 ```
 
 ###Usage
@@ -52,8 +52,9 @@ iv.close()
 ```
 TYPE and JUMPER settings are configured while init ivport.
 ```python
-iv = ivport.IVPort(IVPORT_TYPE, IVPORT_JUMPER)
+ivport.IVPort(IVPORT_TYPE, IVPORT_JUMPER)
 ```
+RESOLUTION, FRAMERATE and other 
 
 There is test_ivport.py script.
 ```shell
