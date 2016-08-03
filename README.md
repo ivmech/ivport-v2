@@ -50,22 +50,28 @@ iv.camera_change(2)
 capture(2)
 iv.close()
 ```
-TYPE and JUMPER settings are configured while init ivport.
+**TYPE** and **JUMPER** settings are configured while initialize ivport.
 ```python
 ivport.IVPort(IVPORT_TYPE, IVPORT_JUMPER)
 ```
-RESOLUTION, FRAMERATE and other settings can be configured.
+**RESOLUTION**, **FRAMERATE** and other settings can be configured.
 ```python
 iv = ivport.IVPort(ivport.TYPE_DUAL2)
 iv.camera_open(camera_v2=True)
 iv.picam.resolution = (640, 480)
 iv.picam.framerate = 30
 ```
+Also **init_ivport.py** should be run at every boot before starting to access camera.
+
+```shell
+cd ivport-v2
+python init_ivport.py
+```
 
 Tests
 ------
 
-There is test_ivport.py script.
+There is **test_ivport.py** script which is for testing.
 ```shell
 cd ivport-v2
 python test_ivport.py
