@@ -57,9 +57,7 @@ ivport.IVPort(IVPORT_TYPE, IVPORT_JUMPER)
 **RESOLUTION**, **FRAMERATE** and other settings can be configured.
 ```python
 iv = ivport.IVPort(ivport.TYPE_DUAL2)
-iv.camera_open(camera_v2=True)
-iv.picam.resolution = (640, 480)
-iv.picam.framerate = 30
+iv.camera_open(camera_v2=True, resolution=(640, 480), framerate=60)
 ```
 Also **init_ivport.py** should be run at every boot before starting to access camera.
 
