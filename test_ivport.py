@@ -53,8 +53,8 @@ def still_capture():
 # all of them are functional
 def main():
     #still_capture()
-    #picam_capture()
-    picam_sequence()
+    picam_capture()
+    #picam_sequence()
 
 if __name__ == "__main__":
     main()
