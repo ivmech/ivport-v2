@@ -16,6 +16,8 @@ IVPORT V2 is available at [HERE](http://www.ivmech.com/magaza/ivport-v2-p-107).
 
 ### Installation
 
+First of all please enable I2C from raspi-config, [guide this link](http://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-raspberry-pi)
+
 ```shell
 git clone https://github.com/ivmech/ivport-v2.git
 ```
