@@ -18,6 +18,10 @@ IVPORT V2 is available at [HERE](http://www.ivmech.com/magaza/ivport-v2-p-107).
 
 First of all please enable I2C from raspi-config, [guide this link](http://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-raspberry-pi)
 
+And enable Camera Module from raspi-config,
+
+### Cloning a Repository
+
 ```shell
 git clone https://github.com/ivmech/ivport-v2.git
 ```
@@ -36,7 +40,37 @@ sudo pip uninstall picamera
 
 ###Usage
 
-There is test_ivport.py script.
+First of all it is important that **init_ivport.py** should be run at every boot before starting to access camera.
+
+```shell
+cd ivport-v2
+python init_ivport.py
+```
+
+And check whether ivport and camera are detected by raspberry pi or no with **vcgencmd get_camera**.
+
+```shell
+root@ivport:~/ivport-v2 $ i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- 64 -- -- -- -- -- -- -- -- -- -- -- 
+70: 70 -- -- -- -- -- -- --
+```
+You should get both **0x70** and **0x64** as addresses of respectively **ivport v2** and **camera module v2**.
+
+```shell
+root@ivport:~/ivport-v2 $ vcgencmd get_camera
+supported=1 detected=1
+```
+**supported** and **detected** should be **1** before **test_ivport.py** script.
+
+There is **test_ivport.py** script for **IVPORT DUAL V2**.
+
 ```python
 import ivport
 # raspistill capture
