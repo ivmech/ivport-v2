@@ -63,7 +63,7 @@ root@ivport:~/ivport-v2 $ i2cdetect -y 1
 ```
 You should get both **0x70** and **0x64** as addresses of respectively **ivport v2** and **camera module v2**.
 
-If you dont get any addresses please check [[Important_Fix]].
+If you dont get any addresses please check _IMPORTANT FIX_ from [here](https://github.com/ivmech/ivport-v2/wiki/Important-Fix).
 
 ```shell
 root@ivport:~/ivport-v2 $ vcgencmd get_camera
