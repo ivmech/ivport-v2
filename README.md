@@ -38,7 +38,7 @@ sudo apt-get remove python-picamera
 sudo pip uninstall picamera
 ```
 
-###Usage
+### Usage
 
 First of all it is important that **init_ivport.py** should be run at every boot before starting to access camera.
 
