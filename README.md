@@ -18,7 +18,9 @@ IVPORT V2 is available at [HERE](http://www.ivmech.com/magaza/ivport-v2-p-107).
 
 First of all please enable I2C from raspi-config, [guide this link](http://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-raspberry-pi)
 
-And enable Camera Module from raspi-config,
+And enable Camera Module from raspi-config on older versions of Raspberry OS.
+
+Also Enable Legacy Camera from raspi-config on Raspberry OS Debian Version 11 (bullseye) [guide this link](https://www.youtube.com/watch?v=E7KPSc_Xr24)
 
 ### Cloning a Repository
 
@@ -29,7 +31,7 @@ git clone https://github.com/ivmech/ivport-v2.git
 ### Dependency Installation
 
 ```shell
-sudo apt-get install python-smbus
+sudo apt-get install python3-smbus
 ```
 picamera module was forked from https://github.com/waveform80/picamera and small edits for camera v2 and ivport support. It may be needed to uninstall preinstalled picamera module on device.
 
@@ -45,6 +47,12 @@ First of all it is important that **init_ivport.py** should be run at every boot
 ```shell
 cd ivport-v2
 python init_ivport.py
+```
+
+It is needed to reboot raspberry pi at initial run of **init_ivport.py**
+
+```shell
+sudo reboot
 ```
 
 And check whether ivport and camera are detected by raspberry pi or no with **vcgencmd get_camera**.

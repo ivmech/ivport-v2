@@ -16,7 +16,7 @@ def picam_sequence():
             time.sleep(0.2)   # SD Card Bandwidth Correction Delay
             yield 'sequence_%02d.jpg' % frame
             frame += 1
-            print camera
+            print(camera)
 
     iv = ivport.IVPort(ivport.TYPE_QUAD2, iv_jumper='A')
     iv.camera_open(camera_v2=True, resolution=(640, 480), framerate=60)

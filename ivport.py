@@ -27,6 +27,7 @@
 #==============================================================================
 
 import sys
+import functools
 
 try:
     import IIC
@@ -34,14 +35,14 @@ try:
     gp.setwarnings(False)
     gp.setmode(gp.BOARD)
 except:
-    print "There are no IIC.py and RPi.GPIO module."
-    print "install RPi.GPIO: sudo apt-get install python-rpi.gpio"
+    print("There are no IIC.py and RPi.GPIO module.")
+    print("install RPi.GPIO: sudo apt-get install python-rpi.gpio")
     sys.exit(0)
 
 try:
     import picamera
 except:
-    print "There are no picamera module or directory."
+    print("There are no picamera module or directory.")
     sys.exit(0)
 
 TYPE_QUAD = 0
@@ -51,7 +52,7 @@ TYPE_DUAL2 = 3
 
 class IVPort():
     IVJP = {'A': (11, 12), 'C': (21, 22), 'B': (15, 16), 'D': (23, 24)}
-    pins = list(reduce(lambda x,y: x+y, IVJP.values()))
+    pins = list(functools.reduce(lambda x,y: x+y, IVJP.values()))
     pins.sort()
     DIVJP = {i+1 : x for i,x in enumerate(pins)}
     del(pins)
@@ -93,8 +94,8 @@ class IVPort():
                 if self.is_camera_v2: self.iviic.write_control_register((0x02))
                 gp.output(self.fPin, True)
             else:
-                print "Ivport type is DUAL."
-                print "There isnt camera: %d" % camera
+                print("Ivport type is DUAL.")
+                print("There isnt camera: %d" % camera)
                 self.close()
                 sys.exit(0)
         else:
@@ -119,9 +120,9 @@ class IVPort():
                 gp.output(self.f1Pin, True)
                 gp.output(self.f2Pin, False)
             else:
-                print "Ivport type is QUAD."
-                print "Cluster feature hasnt been implemented yet."
-                print "There isnt camera: %d" % camera
+                print("Ivport type is QUAD.")
+                print("Cluster feature hasnt been implemented yet.")
+                print("There isnt camera: %d" % camera)
                 self.close()
                 sys.exit(0)
         self.camera = camera
@@ -141,13 +142,13 @@ class IVPort():
         if self.is_opened:
             self.picam.capture(filename + "_CAM" + str(self.camera) + '.jpg', **options)
         else:
-            print "Camera is not opened."
+            print("Camera is not opened.")
 
     def camera_sequence(self, **options):
         if self.is_opened:
             self.picam.capture_sequence(**options)
         else:
-            print "Camera is not opened."
+            print("Camera is not opened.")
 
     def close(self):
         self.camera_change(1)
