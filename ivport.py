@@ -39,11 +39,11 @@ except:
     print("install RPi.GPIO: sudo apt-get install python-rpi.gpio")
     sys.exit(0)
 
-try:
-    import picamera
-except:
-    print("There are no picamera module or directory.")
-    sys.exit(0)
+#try:
+#    import picamera
+#except:
+#    print("There are no picamera module or directory.")
+#    sys.exit(0)
 
 TYPE_QUAD = 0
 TYPE_QUAD2 = 1
